@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TouristGuide.LoginPage"
+             NavigationPage.HasNavigationBar="False"
+             xmlns:forms="clr-namespace:Lottie.Forms;assembly=Lottie.Forms">
+    <ContentPage.Content>
+        <StackLayout
+            VerticalOptions="Center"
+            Margin="20"
+            >
+            <Label Text="Tourist Guide"
+                   HorizontalOptions="CenterAndExpand"
+                   FontSize="33"
+                   TextColor="{StaticResource salmon}"
+                   FontFamily="Comforta"/>
+            <Grid>
+            <forms:AnimationView
+                    x:Name="animationView"
+                    Animation="resource://Resources.map.json?assembly=TouristGuide"
+                    AnimationSource="EmbeddedResource"
+                    AutoPlay="True"
+                    RepeatMode="Infinite"
+                    HeightRequest="250"/>
+            </Grid>
+            <Entry x:Name="emailEntry"
+                   Placeholder="Email"
+                   Style="{StaticResource loginEntry}"
+                   Keyboard="Email"/>
+            <Entry x:Name="passwordEntry"
+                   Placeholder="Password"
+                   Style="{StaticResource loginEntry}"
+                   IsPassword="True"/>
+            <Button x:Name="login"
+                    Text="Login"
+                    Style="{StaticResource normalButton}"
+                    Margin="5,30,5,0"
+                    />
+            <Button x:Name="registration"
+                    Text="Register"
+                    Style="{StaticResource normalButton}"
+                    />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

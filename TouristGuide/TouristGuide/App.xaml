@@ -3,6 +3,34 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="TouristGuide.App">
     <Application.Resources>
+        <ResourceDictionary>
+            <Color x:Key="salmon">#FF5A60</Color>
+            <Color x:Key="white">#FFFFFF</Color>
 
+            <Style x:Key="normalButton"
+                   TargetType="Button">
+                <Setter Property="BackgroundColor" Value="{StaticResource salmon}"/>
+                <Setter Property="TextColor" Value="{StaticResource white}"/>
+                <Setter Property="CornerRadius" Value="17"/>
+                <Setter Property="Margin" Value="5"/>
+            </Style>
+
+            <Style x:Key="loginEntry"
+                   TargetType="Entry">
+                <Setter Property="Margin" Value="5,0,5,0"/>
+                <Setter Property="PlaceholderColor" Value="{StaticResource salmon}"/>
+            </Style>
+            
+            <Style TargetType="Label">
+                <Setter Property="FontFamily" Value="Comforta" />
+            </Style>
+            <Style TargetType="Button">
+                <Setter Property="FontFamily" Value="Comforta" />
+            </Style>
+            <Style TargetType="Entry">
+                <Setter Property="FontFamily" Value="Comforta" />
+            </Style>
+
+        </ResourceDictionary>
     </Application.Resources>
 </Application>
