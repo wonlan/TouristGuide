@@ -3,11 +3,20 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="TouristGuide.LoginPage"
              NavigationPage.HasNavigationBar="False"
-             xmlns:forms="clr-namespace:Lottie.Forms;assembly=Lottie.Forms">
+             xmlns:forms="clr-namespace:Lottie.Forms;assembly=Lottie.Forms"
+             xmlns:vm="clr-namespace:TouristGuide.ViewModels">
+    
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <vm:LoginViewModel x:Key="vm"/>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    
     <ContentPage.Content>
         <StackLayout
             VerticalOptions="Center"
             Margin="20"
+            BindingContext="{StaticResource vm}"
             >
             <Label Text="Tourist Guide"
                    HorizontalOptions="CenterAndExpand"
@@ -26,15 +35,19 @@
             <Entry x:Name="emailEntry"
                    Placeholder="Email"
                    Style="{StaticResource loginEntry}"
-                   Keyboard="Email"/>
+                   Keyboard="Email"
+                   Text="{Binding Email}"/>
             <Entry x:Name="passwordEntry"
                    Placeholder="Password"
                    Style="{StaticResource loginEntry}"
-                   IsPassword="True"/>
+                   IsPassword="True"
+                   Text="{Binding Password}"/>
             <Button x:Name="login"
                     Text="Login"
                     Style="{StaticResource normalButton}"
                     Margin="5,30,5,0"
+                    Command="{Binding LoginCommand}"
+                    CommandParameter="{Binding EntriesHaveText}"
                     />
             <Button x:Name="registration"
                     Text="Register"
