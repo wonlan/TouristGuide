@@ -1,9 +1,21 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="TouristGuide.Views.HomePage">
-  <!--Pages can be added as references or inline-->
-  <ContentPage Title="Tab 1" />
-  <ContentPage Title="Tab 2" />
-  <ContentPage Title="Tab 3" />
+             x:Class="TouristGuide.Views.HomePage"
+             xmlns:local="clr-namespace:TouristGuide.Views"
+             xmlns:android="clr-namespace:Xamarin.Forms.PlatformConfiguration.AndroidSpecific;assembly=Xamarin.Forms.Core"
+            android:TabbedPage.ToolbarPlacement="Bottom"
+            BarBackgroundColor="{StaticResource salmon}"
+            BarTextColor="White"
+            android:TabbedPage.BarItemColor="#66FFFFFF"
+            android:TabbedPage.BarSelectedItemColor="White"
+            NavigationPage.HasBackButton="False"
+            NavigationPage.HasNavigationBar="False">
+
+    <local:WeatherPage Title="Weather"
+                       Icon="ic_action_home.png"/>
+    <local:MapPage Title="Map"
+                   Icon="ic_action_map.png"/>
+    <local:ProfilePage Title="Profile"
+                       Icon="ic_action_account_circle.png"/>
 </TabbedPage>
