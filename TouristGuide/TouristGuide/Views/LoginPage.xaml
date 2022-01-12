@@ -51,6 +51,7 @@
                     />
             <Button x:Name="registration"
                     Text="Register"
+                    Command="{Binding RegistrationNavigationCommand}"
                     Style="{StaticResource normalButton}"
                     />
         </StackLayout>

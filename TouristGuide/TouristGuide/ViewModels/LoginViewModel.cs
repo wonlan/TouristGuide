@@ -15,6 +15,7 @@ namespace TouristGuide.ViewModels
         private string password;
 
         public Command LoginCommand { get; set; }
+        public Command RegistrationNavigationCommand { get; set; }
         public string Email
         {
             get => email;
@@ -44,6 +45,7 @@ namespace TouristGuide.ViewModels
         public LoginViewModel()
         {
             LoginCommand = new Command<bool>(Login, CanLogin);
+            RegistrationNavigationCommand = new Command(RegistrationNavigation);
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
@@ -54,6 +56,10 @@ namespace TouristGuide.ViewModels
             if (await Auth.LoginUser(Email, Password))
                 await App.Current.MainPage.Navigation.PushAsync(new HomePage());
 
+        }
+        private async void RegistrationNavigation()
+        {
+            await App.Current.MainPage.Navigation.PushAsync(new RegistrationPage());
         }
         private bool CanLogin(bool parameter)
         {
