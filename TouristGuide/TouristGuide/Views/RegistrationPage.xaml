@@ -1,12 +1,43 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="TouristGuide.Views.RegistrationPage">
+             x:Class="TouristGuide.Views.RegistrationPage"
+             NavigationPage.HasNavigationBar="False"
+             xmlns:vm="clr-namespace:TouristGuide.ViewModels">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <vm:RegistrationViewModel x:Key="vm"/>
+        </ResourceDictionary>
+    </ContentPage.Resources>
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Rejestracja!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+        <StackLayout
+            VerticalOptions="Center"
+            Margin="20"
+            BindingContext="{StaticResource vm}">
+            <Label Text="Sign In!"
+                   HorizontalOptions="CenterAndExpand"
+                   FontSize="33"
+                   TextColor="{StaticResource salmon}"
+                   FontFamily="Comforta"/>
+            <Entry x:Name="emailEntry"
+                   Placeholder="Email"
+                   Style="{StaticResource loginEntry}"
+                   Text="{Binding Email}"/>
+            <Entry x:Name="passwordEntry"
+                   Placeholder="Password"
+                   IsPassword="True"
+                   Style="{StaticResource loginEntry}"
+                   Text="{Binding Password}"/>
+            <Entry x:Name="confirmPasswordEntry"
+                   Placeholder="Confirm Password"
+                   IsPassword="True"
+                   Style="{StaticResource loginEntry}"
+                   Text="{Binding ConfirmPassword}"/>
+            <Button x:Name="registrationButton"
+                    Text="Register"
+                    Style="{StaticResource normalButton}"
+                    Command="{Binding RegisterCommand}"
+                    CommandParameter="{Binding EntriesHaveText}"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

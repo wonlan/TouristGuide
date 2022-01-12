@@ -42,14 +42,14 @@
                    Style="{StaticResource loginEntry}"
                    IsPassword="True"
                    Text="{Binding Password}"/>
-            <Button x:Name="login"
+            <Button x:Name="loginButton"
                     Text="Login"
                     Style="{StaticResource normalButton}"
                     Margin="5,30,5,0"
                     Command="{Binding LoginCommand}"
                     CommandParameter="{Binding EntriesHaveText}"
                     />
-            <Button x:Name="registration"
+            <Button x:Name="registrationButton"
                     Text="Register"
                     Command="{Binding RegistrationNavigationCommand}"
                     Style="{StaticResource normalButton}"
