@@ -13,7 +13,7 @@
             NavigationPage.HasNavigationBar="False">
 
     <local:WeatherPage Title="Weather"
-                       Icon="ic_action_home.png"/>
+                       Icon="ic_action_wb_sunny.png"/>
     <local:MapPage Title="Map"
                    Icon="ic_action_map.png"/>
     <local:ProfilePage Title="Profile"
