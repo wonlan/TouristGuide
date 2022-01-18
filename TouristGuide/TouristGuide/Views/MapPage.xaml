@@ -5,8 +5,14 @@
              x:Class="TouristGuide.Views.MapPage"
              NavigationPage.HasBackButton="False"
              NavigationPage.HasNavigationBar="False">
-    <maps:Map HorizontalOptions="FillAndExpand"
+    <ContentPage.Content>
+        <StackLayout>
+            <SearchBar></SearchBar>
+        <maps:Map HorizontalOptions="FillAndExpand"
               VerticalOptions="FillAndExpand"
               x:Name="locationsMap"
-              IsShowingUser="True"/>
+              IsShowingUser="True">
+        </maps:Map>
+        </StackLayout>
+    </ContentPage.Content>
 </ContentPage>

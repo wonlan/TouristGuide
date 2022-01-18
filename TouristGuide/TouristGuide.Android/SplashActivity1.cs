@@ -24,7 +24,7 @@ namespace TouristGuide.Droid
         {
             base.OnCreate(savedInstanceState);
             SetContentView(Resource.Layout.splash);
-            Task startupWork = new Task(() => { SimulateStartupAsync(); });
+            Task startupWork = new Task(() => {SimulateStartupAsync(); });
             startupWork.Start();
             // Create your application here
         }

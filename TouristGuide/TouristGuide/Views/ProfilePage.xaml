@@ -4,11 +4,5 @@
              x:Class="TouristGuide.Views.ProfilePage"
              NavigationPage.HasBackButton="False"
              NavigationPage.HasNavigationBar="False">
-    <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
-    </ContentPage.Content>
+    
 </ContentPage>
