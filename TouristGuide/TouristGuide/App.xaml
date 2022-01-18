@@ -4,9 +4,9 @@
              x:Class="TouristGuide.App">
     <Application.Resources>
         <ResourceDictionary>
-            <Color x:Key="salmon">#FF5A60</Color>
-            <Color x:Key="secondaryColor">#FF8388</Color>
-            <Color x:Key="thirdColor">#FF989C</Color>
+            <Color x:Key="salmon">#2b6777</Color>
+            <Color x:Key="secondaryColor">#c9d8e4</Color>
+            <Color x:Key="thirdColor">#f2f2f2</Color>
             <Color x:Key="white">#FFFFFF</Color>
 
                 <Style x:Key="normalButton"

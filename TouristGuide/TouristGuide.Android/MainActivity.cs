@@ -22,7 +22,7 @@ namespace TouristGuide.Droid
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
             Xamarin.FormsMaps.Init(this, savedInstanceState);
             LoadApplication(new App());
-            Window.SetStatusBarColor(Android.Graphics.Color.Argb(255,255,90,96));
+            Window.SetStatusBarColor(Android.Graphics.Color.Argb(255,43,103,119));
         }
         public override void OnRequestPermissionsResult(int requestCode, string[] permissions, [GeneratedEnum] Android.Content.PM.Permission[] grantResults)
         {
