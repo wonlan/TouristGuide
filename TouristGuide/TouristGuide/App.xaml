@@ -5,9 +5,11 @@
     <Application.Resources>
         <ResourceDictionary>
             <Color x:Key="salmon">#FF5A60</Color>
+            <Color x:Key="secondaryColor">#FF8388</Color>
+            <Color x:Key="thirdColor">#FF989C</Color>
             <Color x:Key="white">#FFFFFF</Color>
 
-            <Style x:Key="normalButton"
+                <Style x:Key="normalButton"
                    TargetType="Button">
                 <Setter Property="BackgroundColor" Value="{StaticResource salmon}"/>
                 <Setter Property="TextColor" Value="{StaticResource white}"/>

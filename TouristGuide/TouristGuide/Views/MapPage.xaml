@@ -7,8 +7,8 @@
              NavigationPage.HasNavigationBar="False">
     <ContentPage.Content>
         <StackLayout>
-            <SearchBar></SearchBar>
-        <maps:Map HorizontalOptions="FillAndExpand"
+            <SearchBar BackgroundColor="{StaticResource secondaryColor}"/>
+            <maps:Map HorizontalOptions="FillAndExpand"
               VerticalOptions="FillAndExpand"
               x:Name="locationsMap"
               IsShowingUser="True">

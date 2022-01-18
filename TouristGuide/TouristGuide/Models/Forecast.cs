@@ -116,9 +116,11 @@ namespace TouristGuide.Models.Forecast
         public int clouds { get; set; }
         public double pop { get; set; }
         public double snow { get; set; }
+        public double rain { get; set; }
         public double uvi { get; set; }
         public DateTime date { get; set; }
-        public string dayMonth { get; set; }
+        public double precipitation => snow + rain;
+        public double probability => pop * 100;
     }
 
     public class Forecast

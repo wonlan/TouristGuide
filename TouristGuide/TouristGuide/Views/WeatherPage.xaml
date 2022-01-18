@@ -13,10 +13,10 @@
     </ContentPage.Resources>
     <ContentPage.Content>
         <ScrollView>
-            <Grid BackgroundColor="#FF8388"
+            <Grid BackgroundColor="{StaticResource secondaryColor}"
                   BindingContext="{StaticResource vm}">
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="360"/>
+                    <RowDefinition Height="330"/>
                     <RowDefinition Height="74"/>
                     <RowDefinition Height="74"/>
                     <RowDefinition Height="74"/>
@@ -25,29 +25,173 @@
                     <RowDefinition Height="74"/>
                     <RowDefinition Height="74"/>
                 </Grid.RowDefinitions>
-                <Frame Grid.Row="0">
+                <Frame Grid.Row="0" Padding="0">
                     <Frame.Background>
                         <LinearGradientBrush EndPoint="0,1">
                             <GradientStop Color="{StaticResource salmon}"
                           Offset="0.0" />
-                            <GradientStop Color="#FF8388"
+                            <GradientStop Color="{StaticResource secondaryColor}"
                           Offset="0.0" />
                         </LinearGradientBrush>
                     </Frame.Background>
-                </Frame>
-                <BoxView BackgroundColor="#FF989C"
-                         Grid.Row="1"/>
-                <BoxView BackgroundColor="#FF989C"
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="35"/>
+                            <RowDefinition Height="25"/>
+                            <RowDefinition Height="150"/>
+                            <RowDefinition Height="120"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="6*"/>
+                            <ColumnDefinition Width="4*"/>
+                        </Grid.ColumnDefinitions>
+                        <!--
+                        <BoxView BackgroundColor="#FF989C"
+                        Grid.Row="0"
+                        Grid.Column="0"
+                        Grid.ColumnSpan="2"/>
+                        <BoxView BackgroundColor="#FF989C"
+                         Grid.Row="1"
+                                 Grid.Column="0"
+                        Grid.ColumnSpan="2"/>
+                        <BoxView BackgroundColor="#FF989C"
                          Grid.Row="2"/>
-                <BoxView BackgroundColor="#FF989C"
+                        <BoxView BackgroundColor="#FF989C"
+                         Grid.Row="2"
+                         Grid.Column="1"/>
+                        -->
+                        <Grid Grid.Row="3"
+                              Grid.Column="0"
+                              Grid.ColumnSpan="2"
+                              Padding="0">
+
+                            <Image Source="drop.png"
+                                   Grid.Row="0"
+                                   HorizontalOptions="CenterAndExpand"
+                                   VerticalOptions="StartAndExpand"
+                                   HeightRequest="40"
+                                   Grid.Column="0"/>
+                            <Image Source="pop.png"
+                                   Grid.Row="0"
+                                   HorizontalOptions="CenterAndExpand"
+                                   VerticalOptions="StartAndExpand"
+                                   HeightRequest="40"
+                                   Grid.Column="1"/>
+                            <Image Source="windy.png"
+                                   Grid.Row="0"
+                                   HorizontalOptions="CenterAndExpand"
+                                   VerticalOptions="StartAndExpand"
+                                   HeightRequest="40"
+                                   Grid.Column="2"
+                                   Margin="25,0,0,0"/>
+                            <Image Source="warm.png"
+                                   Grid.Row="0"
+                                   HorizontalOptions="CenterAndExpand"
+                                   VerticalOptions="StartAndExpand"
+                                   HeightRequest="40"
+                                   Grid.Column="3"/>
+                            <Image Source="cloudy.png"
+                                   Grid.Row="0"
+                                   HorizontalOptions="CenterAndExpand"
+                                   VerticalOptions="StartAndExpand"
+                                   HeightRequest="40"
+                                   Grid.Column="4"/>
+                            <Image Source="humidity.png"
+                                   Grid.Row="0"
+                                   HorizontalOptions="CenterAndExpand"
+                                   VerticalOptions="StartAndExpand"
+                                   HeightRequest="40"
+                                   Grid.Column="5"/>
+                            <Label Text="{Binding DailyForecasts[0].rain, StringFormat='{0:0} mm'}"
+                       HorizontalOptions="CenterAndExpand"
+                               VerticalOptions="CenterAndExpand"
+                               FontSize="15"
+                               Grid.Row="0"
+                               Grid.Column="0"/>
+                            <Label Text="{Binding DailyForecasts[0].probability, StringFormat='{0:N0} %'}"
+                       HorizontalOptions="CenterAndExpand"
+                               VerticalOptions="CenterAndExpand"
+                               FontSize="15"
+                               Grid.Row="0"
+                               Grid.Column="1"/>
+                            <Label Text="{Binding DailyForecasts[0].wind_speed, StringFormat='{0:N} km/h'}"
+                       HorizontalOptions="CenterAndExpand"
+                               VerticalOptions="CenterAndExpand"
+                               FontSize="15"
+                               Grid.Row="0"
+                               Grid.Column="2"
+                               Margin="15,15,0,0"/>
+                            <Label Text="{Binding DailyForecasts[0].temp.day, StringFormat='{0:N0}°'}"
+                       HorizontalOptions="CenterAndExpand"
+                               VerticalOptions="CenterAndExpand"
+                               FontSize="15"
+                               Grid.Row="0"
+                               Grid.Column="3"/>
+                            <Label Text="{Binding DailyForecasts[0].clouds, StringFormat='{0:N0}%'}"
+                       HorizontalOptions="CenterAndExpand"
+                               VerticalOptions="CenterAndExpand"
+                               FontSize="15"
+                               Grid.Row="0"
+                               Grid.Column="4"/>
+                            <Label Text="{Binding DailyForecasts[0].humidity, StringFormat='{0:N0}%'}"
+                       HorizontalOptions="CenterAndExpand"
+                               VerticalOptions="CenterAndExpand"
+                               FontSize="15"
+                               Grid.Row="0"
+                               Grid.Column="5"/>
+                        </Grid>
+                        <!-- -->
+                        <Label Text="{Binding Geocodes[0].label}"
+                       HorizontalOptions="CenterAndExpand"
+                               VerticalOptions="CenterAndExpand"
+                               FontSize="25"
+                               Grid.Row="0"
+                               Grid.Column="0"
+                               Grid.ColumnSpan="2"/>
+                        <Label Text="{Binding DailyForecasts[0].date, StringFormat='{0:dddd, dd MMMM yyyy}'}"
+                       HorizontalOptions="CenterAndExpand"
+                               VerticalOptions="CenterAndExpand"
+                               FontSize="15"
+                               Grid.Row="1"
+                               Grid.Column="0"
+                               Grid.ColumnSpan="2"/>
+                        <Image Source="{Binding DailyForecasts[0].weather[0].icon_url}"
+                    Grid.Row="2"
+                               Grid.Column="1"
+                    VerticalOptions="FillAndExpand"
+                    HorizontalOptions="FillAndExpand"/>
+                        <Label Text="{Binding DailyForecasts[0].weather[0].main}"
+                       HorizontalOptions="StartAndExpand"
+                               VerticalOptions="StartAndExpand"
+                               FontSize="28"
+                               Grid.Row="2"
+                               Grid.Column="0"
+                               Margin="15,40,0,0"
+                               />
+                        <Label Text="{Binding DailyForecasts[0].weather[0].description}"
+                       HorizontalOptions="StartAndExpand"
+                               VerticalOptions="CenterAndExpand"
+                               FontSize="15"
+                               Grid.Row="2"
+                               Grid.Column="0"
+                               Margin="15,40,0,0"
+                               />
+
+                    </Grid>
+                </Frame>
+                <BoxView BackgroundColor="{StaticResource thirdColor}"
+                         Grid.Row="1"/>
+                <BoxView BackgroundColor="{StaticResource thirdColor}"
+                         Grid.Row="2"/>
+                <BoxView BackgroundColor="{StaticResource thirdColor}"
                          Grid.Row="3"/>
-                <BoxView BackgroundColor="#FF989C"
+                <BoxView BackgroundColor="{StaticResource thirdColor}"
                          Grid.Row="4"/>
-                <BoxView BackgroundColor="#FF989C"
+                <BoxView BackgroundColor="{StaticResource thirdColor}"
                          Grid.Row="5"/>
-                <BoxView BackgroundColor="#FF989C"
+                <BoxView BackgroundColor="{StaticResource thirdColor}"
                          Grid.Row="6"/>
-                <BoxView BackgroundColor="#FF989C"
+                <BoxView BackgroundColor="{StaticResource thirdColor}"
                          Grid.Row="7"/>
                 <!-- 1 -->
                 <Label Text="{Binding DailyForecasts[1].date, StringFormat='{0:MMMM dd}'}"
@@ -55,7 +199,7 @@
                    FontSize="15"
                    VerticalOptions="CenterAndExpand"
                    Margin="15"/>
-                <Label Text="{Binding DailyForecasts[1].weather[0].description}"
+                <Label Text="{Binding DailyForecasts[1].weather[0].main}"
                    Grid.Row="1"
                    FontSize="15"
                    VerticalOptions="CenterAndExpand"
@@ -73,7 +217,7 @@
                    FontSize="15"
                    VerticalOptions="CenterAndExpand"
                    Margin="15"/>
-                <Label Text="{Binding DailyForecasts[2].weather[0].description}"
+                <Label Text="{Binding DailyForecasts[2].weather[0].main}"
                    Grid.Row="2"
                    FontSize="15"
                    VerticalOptions="CenterAndExpand"
@@ -91,7 +235,7 @@
                    FontSize="15"
                    VerticalOptions="CenterAndExpand"
                    Margin="15"/>
-                <Label Text="{Binding DailyForecasts[3].weather[0].description}"
+                <Label Text="{Binding DailyForecasts[3].weather[0].main}"
                    Grid.Row="3"
                    FontSize="15"
                    VerticalOptions="CenterAndExpand"
@@ -109,7 +253,7 @@
                    FontSize="15"
                    VerticalOptions="CenterAndExpand"
                    Margin="15"/>
-                <Label Text="{Binding DailyForecasts[4].weather[0].description}"
+                <Label Text="{Binding DailyForecasts[4].weather[0].main}"
                    Grid.Row="4"
                    FontSize="15"
                    VerticalOptions="CenterAndExpand"
@@ -127,7 +271,7 @@
                    FontSize="15"
                    VerticalOptions="CenterAndExpand"
                    Margin="15"/>
-                <Label Text="{Binding DailyForecasts[5].weather[0].description}"
+                <Label Text="{Binding DailyForecasts[5].weather[0].main}"
                    Grid.Row="5"
                    FontSize="15"
                    VerticalOptions="CenterAndExpand"
@@ -145,7 +289,7 @@
                    FontSize="15"
                    VerticalOptions="CenterAndExpand"
                    Margin="15"/>
-                <Label Text="{Binding DailyForecasts[6].weather[0].description}"
+                <Label Text="{Binding DailyForecasts[6].weather[0].main}"
                    Grid.Row="6"
                    FontSize="15"
                    VerticalOptions="CenterAndExpand"
@@ -163,7 +307,7 @@
                    FontSize="15"
                    VerticalOptions="CenterAndExpand"
                    Margin="15"/>
-                <Label Text="{Binding DailyForecasts[7].weather[0].description}"
+                <Label Text="{Binding DailyForecasts[7].weather[0].main}"
                    Grid.Row="7"
                    FontSize="15"
                    VerticalOptions="CenterAndExpand"
@@ -206,10 +350,11 @@
                        HorizontalOptions="CenterAndExpand"
                        Margin="180,0,0,0"/>
                 <Image Source="{Binding DailyForecasts[7].weather[0].icon_url}"
-                       Grid.Row="7"
-                       VerticalOptions="CenterAndExpand"
-                       HorizontalOptions="CenterAndExpand"
-                       Margin="180,0,0,0"/>
+                    Grid.Row="7"
+                    VerticalOptions="CenterAndExpand"
+                    HorizontalOptions="CenterAndExpand"
+                    Margin="180,0,0,0"/>
+
             </Grid>
         </ScrollView>
     </ContentPage.Content>

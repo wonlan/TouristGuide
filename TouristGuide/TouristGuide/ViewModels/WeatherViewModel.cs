@@ -5,16 +5,20 @@ using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Text;
 using System.Threading.Tasks;
+using TouristGuide.Models;
 using TouristGuide.Models.Forecast;
+
 
 namespace TouristGuide.ViewModels
 {
     class WeatherViewModel : INotifyPropertyChanged
     {
         public ObservableCollection<Daily> DailyForecasts { get; set; }
+        public ObservableCollection<Geocode> Geocodes { get; set; }
         public WeatherViewModel()
         {
             DailyForecasts = new ObservableCollection<Daily>();
+            Geocodes = new ObservableCollection<Geocode>();
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
@@ -28,13 +32,16 @@ namespace TouristGuide.ViewModels
             var locator = CrossGeolocator.Current;
             var position = await locator.GetPositionAsync();
             var forecast = await ForecastRoot.GetWeather(position.Latitude, position.Longitude);
+            var geocode = await GeocodeRoot.GetReverseGeocodingLocation(position.Latitude, position.Longitude);
+            Geocodes.Clear();
+            Geocodes.Add(geocode);
             DailyForecasts.Clear();
+            OnPropertyChanged("Geocodes");
             foreach (var dailyForecast in forecast.daily)
             {
                 DailyForecasts.Add(dailyForecast);
             }
             ChangeTime();
-            concatDayMonth();
             OnPropertyChanged("DailyForecasts");
         }
         private void ChangeTime()
@@ -43,13 +50,6 @@ namespace TouristGuide.ViewModels
             foreach (var dailyForecast in DailyForecasts)
             {
                 dailyForecast.date= dtDateTime.AddSeconds(dailyForecast.dt).ToLocalTime();
-            }
-        }
-        private void concatDayMonth()
-        {
-            foreach (var dailyForecast in DailyForecasts)
-            {
-                dailyForecast.dayMonth = dailyForecast.date.Day.ToString() + "." + dailyForecast.date.Month.ToString();
             }
         }
     }
