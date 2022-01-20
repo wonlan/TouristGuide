@@ -1,10 +1,178 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="TouristGuide.Views.WeatherDetailsPage">
+             x:Class="TouristGuide.Views.WeatherDetailsPage"
+             xmlns:vm="clr-namespace:TouristGuide.ViewModels">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <vm:WeatherDetailsViewModel x:Key="vm"/>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
     <ContentPage.Content>
-        <StackLayout>
-            <Label x:Name="test"/>
-        </StackLayout>
+        <ScrollView BackgroundColor="{StaticResource secondaryColor}">
+            <StackLayout Padding="0"
+                         BindingContext="{StaticResource vm}">
+                <Frame Padding="0">
+                    <StackLayout Margin="0,0,0,10">
+                        <Label Text="{Binding Daily.date, StringFormat='{0:dddd, dd MMMM yyyy}'}"
+                               HorizontalOptions="CenterAndExpand"
+                               FontSize="20"/>
+                        <Image Source="{Binding Daily.weather[0].icon_url}"
+                               HorizontalOptions="FillAndExpand"
+                               VerticalOptions="FillAndExpand"
+                               HeightRequest="150"/>
+                        <Label Text="{Binding Daily.weather[0].main}"
+                               HorizontalOptions="CenterAndExpand"
+                               FontSize="25"/>
+                        <Label Text="{Binding Daily.weather[0].description}"
+                               HorizontalOptions="CenterAndExpand"
+                               FontSize="20"/>
+                    </StackLayout>
+                    <Frame.Background>
+                        <LinearGradientBrush EndPoint="0,1">
+                            <GradientStop Color="{StaticResource salmon}"
+                          Offset="0.0" />
+                            <GradientStop Color="{StaticResource secondaryColor}"
+                          Offset="0.0" />
+                        </LinearGradientBrush>
+                    </Frame.Background>
+                </Frame>
+                <Grid>
+                    <!-- Grid Row 0 -->
+                    <Frame Grid.Row="0"
+                           CornerRadius="20"
+                           Margin="3"
+                           BackgroundColor="{StaticResource thirdColor}"/>
+                    <Label Text="Precipitation"
+                        Grid.Row="0"
+                        HorizontalOptions="CenterAndExpand"
+                        VerticalOptions="CenterAndExpand"
+                           FontSize="17"/>
+                    <Image Source="drop.png"
+                           Grid.Row="0"
+                           VerticalOptions="CenterAndExpand"
+                           HorizontalOptions="StartAndExpand"
+                           Margin="15"
+                           HeightRequest="36"/>
+                    <Label Text="{Binding Daily.precipitation, StringFormat='{0:N0} mm'}"
+                        Grid.Row="0"
+                        HorizontalOptions="EndAndExpand"
+                        VerticalOptions="CenterAndExpand"
+                            Margin="15"
+                           FontSize="17"/>
+                    <!-- Grid Row 1 -->
+                    <Frame Grid.Row="1"
+                           CornerRadius="20"
+                           Margin="3"
+                           BackgroundColor="{StaticResource thirdColor}"/>
+                    <Label Text="Probability of Precipitation"
+                        Grid.Row="1"
+                        HorizontalOptions="CenterAndExpand"
+                        VerticalOptions="CenterAndExpand"
+                           FontSize="17"/>
+                    <Image Source="pop.png"
+                           Grid.Row="1"
+                           VerticalOptions="CenterAndExpand"
+                           HorizontalOptions="StartAndExpand"
+                           Margin="15"
+                           HeightRequest="36"/>
+                    <Label Text="{Binding Daily.probability, StringFormat='{0} %'}"
+                        Grid.Row="1"
+                        HorizontalOptions="EndAndExpand"
+                        VerticalOptions="CenterAndExpand"
+                            Margin="15"
+                           FontSize="17"/>
+                    <!-- Grid Row 2 -->
+                    <Frame Grid.Row="2"
+                           CornerRadius="20"
+                           Margin="3"
+                           BackgroundColor="{StaticResource thirdColor}"/>
+                    <Label Text="Wind Speed"
+                        Grid.Row="2"
+                        HorizontalOptions="CenterAndExpand"
+                        VerticalOptions="CenterAndExpand"
+                           FontSize="17"/>
+                    <Image Source="windy.png"
+                           Grid.Row="2"
+                           VerticalOptions="CenterAndExpand"
+                           HorizontalOptions="StartAndExpand"
+                           Margin="15"
+                           HeightRequest="36"/>
+                    <Label Text="{Binding Daily.wind_speed, StringFormat='{0} m/s'}"
+                        Grid.Row="2"
+                        HorizontalOptions="EndAndExpand"
+                        VerticalOptions="CenterAndExpand"
+                            Margin="15"
+                           FontSize="17"/>
+                    <!-- Grid Row 3 -->
+                    <Frame Grid.Row="3"
+                           CornerRadius="20"
+                           Margin="3"
+                           BackgroundColor="{StaticResource thirdColor}"/>
+                    <Label Text="Cloudiness"
+                        Grid.Row="3"
+                        HorizontalOptions="CenterAndExpand"
+                        VerticalOptions="CenterAndExpand"
+                           FontSize="17"/>
+                    <Image Source="cloudy.png"
+                           Grid.Row="3"
+                           VerticalOptions="CenterAndExpand"
+                           HorizontalOptions="StartAndExpand"
+                           Margin="15"
+                           HeightRequest="36"/>
+                    <Label Text="{Binding Daily.clouds, StringFormat='{0} %'}"
+                        Grid.Row="3"
+                        HorizontalOptions="EndAndExpand"
+                        VerticalOptions="CenterAndExpand"
+                            Margin="15"
+                           FontSize="17"/>
+                    <!-- Grid Row 4 -->
+                    <Frame Grid.Row="4"
+                           CornerRadius="20"
+                           Margin="3"
+                           BackgroundColor="{StaticResource thirdColor}"/>
+                    <Label Text="Humidity"
+                        Grid.Row="4"
+                        HorizontalOptions="CenterAndExpand"
+                        VerticalOptions="CenterAndExpand"
+                           FontSize="17"/>
+                    <Image Source="humidity.png"
+                           Grid.Row="4"
+                           VerticalOptions="CenterAndExpand"
+                           HorizontalOptions="StartAndExpand"
+                           Margin="15"
+                           HeightRequest="36"/>
+                    <Label Text="{Binding Daily.humidity, StringFormat='{0} %'}"
+                        Grid.Row="4"
+                        HorizontalOptions="EndAndExpand"
+                        VerticalOptions="CenterAndExpand"
+                            Margin="15"
+                           FontSize="17"/>
+                    <!-- Grid Row 5 -->
+                    <Frame Grid.Row="5"
+                           CornerRadius="20"
+                           Margin="3"
+                           BackgroundColor="{StaticResource thirdColor}"/>
+                    <Label Text="Rain"
+                        Grid.Row="5"
+                        HorizontalOptions="CenterAndExpand"
+                        VerticalOptions="CenterAndExpand"
+                           FontSize="17"/>
+                    <Image Source="drop.png"
+                           Grid.Row="5"
+                           VerticalOptions="CenterAndExpand"
+                           HorizontalOptions="StartAndExpand"
+                           Margin="15"
+                           HeightRequest="36"/>
+                    <Label Text="{Binding Daily.humidity, StringFormat='{0} %'}"
+                        Grid.Row="5"
+                        HorizontalOptions="EndAndExpand"
+                        VerticalOptions="CenterAndExpand"
+                            Margin="15"
+                           FontSize="17"/>
+                </Grid>
+            </StackLayout>
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>

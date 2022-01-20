@@ -45,6 +45,7 @@ namespace TouristGuide.ViewModels
                 DailyForecasts.Add(dailyForecast);
             }
             ChangeTime();
+            ChangeWindSpeed();
             OnPropertyChanged("DailyForecasts");
         }
         private void ChangeTime()
@@ -52,13 +53,20 @@ namespace TouristGuide.ViewModels
             DateTime dtDateTime = new DateTime(1970, 1, 1, 0, 0, 0, 0, System.DateTimeKind.Utc);
             foreach (var dailyForecast in DailyForecasts)
             {
-                dailyForecast.date= dtDateTime.AddSeconds(dailyForecast.dt).ToLocalTime();
+                dailyForecast.date = dtDateTime.AddSeconds(dailyForecast.dt).ToLocalTime();
             }
         }
-        private async void WeatherDetailsNavigation(Daily day)
+        private void ChangeWindSpeed()
         {
-            await App.Current.MainPage.Navigation.PushAsync(new WeatherDetailsPage(day));
-            
+            foreach (var dailyForecast in DailyForecasts)
+            {
+                dailyForecast.wind_speed /= 10;
+            }
+        }
+        private async void WeatherDetailsNavigation(Daily daily)
+        {
+            await App.Current.MainPage.Navigation.PushAsync(new WeatherDetailsPage(daily));
+
         }
     }
 }

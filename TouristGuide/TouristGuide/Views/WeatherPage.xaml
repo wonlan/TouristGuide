@@ -21,7 +21,8 @@
                 <SearchBar BackgroundColor="{StaticResource salmon}"
                            Grid.Row="0"
                            Margin="0"
-                           Placeholder="Search for City"/>
+                           Placeholder="Search for City"
+                           />
                 <Grid Grid.Row="1"
                 BackgroundColor="{StaticResource secondaryColor}"
                   BindingContext="{StaticResource vm}">
@@ -55,21 +56,6 @@
                                 <ColumnDefinition Width="6*"/>
                                 <ColumnDefinition Width="4*"/>
                             </Grid.ColumnDefinitions>
-                            <!--
-                        <BoxView BackgroundColor="#FF989C"
-                        Grid.Row="0"
-                        Grid.Column="0"
-                        Grid.ColumnSpan="2"/>
-                        <BoxView BackgroundColor="#FF989C"
-                         Grid.Row="1"
-                                 Grid.Column="0"
-                        Grid.ColumnSpan="2"/>
-                        <BoxView BackgroundColor="#FF989C"
-                         Grid.Row="2"/>
-                        <BoxView BackgroundColor="#FF989C"
-                         Grid.Row="2"
-                         Grid.Column="1"/>
-                        -->
                             <Grid Grid.Row="3"
                               Grid.Column="0"
                               Grid.ColumnSpan="2"
@@ -112,7 +98,7 @@
                                    VerticalOptions="StartAndExpand"
                                    HeightRequest="40"
                                    Grid.Column="5"/>
-                                <Label Text="{Binding DailyForecasts[0].rain, StringFormat='{0:0} mm'}"
+                                <Label Text="{Binding DailyForecasts[0].precipitation, StringFormat='{0:0} mm'}"
                        HorizontalOptions="CenterAndExpand"
                                VerticalOptions="CenterAndExpand"
                                FontSize="15"
@@ -124,7 +110,7 @@
                                FontSize="15"
                                Grid.Row="0"
                                Grid.Column="1"/>
-                                <Label Text="{Binding DailyForecasts[0].wind_speed, StringFormat='{0:N} km/h'}"
+                                <Label Text="{Binding DailyForecasts[0].wind_speed, StringFormat='{0:N} m/s'}"
                        HorizontalOptions="CenterAndExpand"
                                VerticalOptions="CenterAndExpand"
                                FontSize="15"
@@ -192,11 +178,13 @@
                             <TapGestureRecognizer NumberOfTapsRequired="1"
                                                   Command="{Binding WeatherDetailsNavigationCommand}"
                                                   CommandParameter="{Binding DailyForecasts[0]}"/>
-                            
+
                         </Frame.GestureRecognizers>
                     </Frame>
                     <BoxView BackgroundColor="{StaticResource thirdColor}"
-                         Grid.Row="1">
+                         Grid.Row="1"
+                             CornerRadius="20"
+                             Margin="3">
                         <BoxView.GestureRecognizers>
                             <TapGestureRecognizer NumberOfTapsRequired="1"
                                                   Command="{Binding WeatherDetailsNavigationCommand}"
@@ -204,7 +192,9 @@
                         </BoxView.GestureRecognizers>
                     </BoxView>
                     <BoxView BackgroundColor="{StaticResource thirdColor}"
-                         Grid.Row="2">
+                         Grid.Row="2"
+                             CornerRadius="20"
+                             Margin="3">
                         <BoxView.GestureRecognizers>
                             <TapGestureRecognizer NumberOfTapsRequired="1"
                                                   Command="{Binding WeatherDetailsNavigationCommand}"
@@ -212,7 +202,9 @@
                         </BoxView.GestureRecognizers>
                     </BoxView>
                     <BoxView BackgroundColor="{StaticResource thirdColor}"
-                         Grid.Row="3">
+                         Grid.Row="3"
+                             CornerRadius="20"
+                             Margin="3">
                         <BoxView.GestureRecognizers>
                             <TapGestureRecognizer NumberOfTapsRequired="1"
                                                   Command="{Binding WeatherDetailsNavigationCommand}"
@@ -220,7 +212,9 @@
                         </BoxView.GestureRecognizers>
                     </BoxView>
                     <BoxView BackgroundColor="{StaticResource thirdColor}"
-                         Grid.Row="4">
+                         Grid.Row="4"
+                             CornerRadius="20"
+                             Margin="3">
                         <BoxView.GestureRecognizers>
                             <TapGestureRecognizer NumberOfTapsRequired="1"
                                                   Command="{Binding WeatherDetailsNavigationCommand}"
@@ -228,7 +222,9 @@
                         </BoxView.GestureRecognizers>
                     </BoxView>
                     <BoxView BackgroundColor="{StaticResource thirdColor}"
-                         Grid.Row="5">
+                         Grid.Row="5"
+                             CornerRadius="20"
+                             Margin="3">
                         <BoxView.GestureRecognizers>
                             <TapGestureRecognizer NumberOfTapsRequired="1"
                                                   Command="{Binding WeatherDetailsNavigationCommand}"
@@ -236,7 +232,9 @@
                         </BoxView.GestureRecognizers>
                     </BoxView>
                     <BoxView BackgroundColor="{StaticResource thirdColor}"
-                         Grid.Row="6">
+                         Grid.Row="6"
+                             CornerRadius="20"
+                             Margin="3">
                         <BoxView.GestureRecognizers>
                             <TapGestureRecognizer NumberOfTapsRequired="1"
                                                   Command="{Binding WeatherDetailsNavigationCommand}"
@@ -244,7 +242,9 @@
                         </BoxView.GestureRecognizers>
                     </BoxView>
                     <BoxView BackgroundColor="{StaticResource thirdColor}"
-                         Grid.Row="7">
+                         Grid.Row="7"
+                             CornerRadius="20"
+                             Margin="3">
                         <BoxView.GestureRecognizers>
                             <TapGestureRecognizer NumberOfTapsRequired="1"
                                                   Command="{Binding WeatherDetailsNavigationCommand}"

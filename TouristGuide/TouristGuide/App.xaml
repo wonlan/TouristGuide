@@ -9,12 +9,16 @@
             <Color x:Key="thirdColor">#E6E6E6</Color>
             <Color x:Key="white">#FFFFFF</Color>
 
-                <Style x:Key="normalButton"
+            <Style x:Key="normalButton"
                    TargetType="Button">
                 <Setter Property="BackgroundColor" Value="{StaticResource salmon}"/>
                 <Setter Property="TextColor" Value="{StaticResource white}"/>
                 <Setter Property="CornerRadius" Value="17"/>
                 <Setter Property="Margin" Value="5"/>
+            </Style>
+            <Style TargetType="NavigationPage">
+                <Setter Property="BarBackgroundColor" Value="{StaticResource salmon}"/>
+                <Setter Property="BarTextColor" Value="{StaticResource white}"   />
             </Style>
 
             <Style x:Key="loginEntry"
@@ -22,7 +26,7 @@
                 <Setter Property="Margin" Value="5,0,5,0"/>
                 <Setter Property="PlaceholderColor" Value="{StaticResource salmon}"/>
             </Style>
-            
+
             <Style TargetType="Label">
                 <Setter Property="FontFamily" Value="Comforta" />
             </Style>
