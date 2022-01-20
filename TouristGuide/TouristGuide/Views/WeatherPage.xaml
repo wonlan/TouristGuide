@@ -188,21 +188,69 @@
                                />
 
                         </Grid>
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer NumberOfTapsRequired="1"
+                                                  Command="{Binding WeatherDetailsNavigationCommand}"
+                                                  CommandParameter="{Binding DailyForecasts[0]}"/>
+                            
+                        </Frame.GestureRecognizers>
                     </Frame>
                     <BoxView BackgroundColor="{StaticResource thirdColor}"
-                         Grid.Row="1"/>
+                         Grid.Row="1">
+                        <BoxView.GestureRecognizers>
+                            <TapGestureRecognizer NumberOfTapsRequired="1"
+                                                  Command="{Binding WeatherDetailsNavigationCommand}"
+                                                  CommandParameter="{Binding DailyForecasts[1]}"/>
+                        </BoxView.GestureRecognizers>
+                    </BoxView>
                     <BoxView BackgroundColor="{StaticResource thirdColor}"
-                         Grid.Row="2"/>
+                         Grid.Row="2">
+                        <BoxView.GestureRecognizers>
+                            <TapGestureRecognizer NumberOfTapsRequired="1"
+                                                  Command="{Binding WeatherDetailsNavigationCommand}"
+                                                  CommandParameter="{Binding DailyForecasts[2]}"/>
+                        </BoxView.GestureRecognizers>
+                    </BoxView>
                     <BoxView BackgroundColor="{StaticResource thirdColor}"
-                         Grid.Row="3"/>
+                         Grid.Row="3">
+                        <BoxView.GestureRecognizers>
+                            <TapGestureRecognizer NumberOfTapsRequired="1"
+                                                  Command="{Binding WeatherDetailsNavigationCommand}"
+                                                  CommandParameter="{Binding DailyForecasts[3]}"/>
+                        </BoxView.GestureRecognizers>
+                    </BoxView>
                     <BoxView BackgroundColor="{StaticResource thirdColor}"
-                         Grid.Row="4"/>
+                         Grid.Row="4">
+                        <BoxView.GestureRecognizers>
+                            <TapGestureRecognizer NumberOfTapsRequired="1"
+                                                  Command="{Binding WeatherDetailsNavigationCommand}"
+                                                  CommandParameter="{Binding DailyForecasts[4]}"/>
+                        </BoxView.GestureRecognizers>
+                    </BoxView>
                     <BoxView BackgroundColor="{StaticResource thirdColor}"
-                         Grid.Row="5"/>
+                         Grid.Row="5">
+                        <BoxView.GestureRecognizers>
+                            <TapGestureRecognizer NumberOfTapsRequired="1"
+                                                  Command="{Binding WeatherDetailsNavigationCommand}"
+                                                  CommandParameter="{Binding DailyForecasts[5]}"/>
+                        </BoxView.GestureRecognizers>
+                    </BoxView>
                     <BoxView BackgroundColor="{StaticResource thirdColor}"
-                         Grid.Row="6"/>
+                         Grid.Row="6">
+                        <BoxView.GestureRecognizers>
+                            <TapGestureRecognizer NumberOfTapsRequired="1"
+                                                  Command="{Binding WeatherDetailsNavigationCommand}"
+                                                  CommandParameter="{Binding DailyForecasts[6]}"/>
+                        </BoxView.GestureRecognizers>
+                    </BoxView>
                     <BoxView BackgroundColor="{StaticResource thirdColor}"
-                         Grid.Row="7"/>
+                         Grid.Row="7">
+                        <BoxView.GestureRecognizers>
+                            <TapGestureRecognizer NumberOfTapsRequired="1"
+                                                  Command="{Binding WeatherDetailsNavigationCommand}"
+                                                  CommandParameter="{Binding DailyForecasts[7]}"/>
+                        </BoxView.GestureRecognizers>
+                    </BoxView>
                     <!-- 1 -->
                     <Label Text="{Binding DailyForecasts[1].date, StringFormat='{0:MMMM dd}'}"
                    Grid.Row="1"

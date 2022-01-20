@@ -7,7 +7,8 @@ using System.Text;
 using System.Threading.Tasks;
 using TouristGuide.Models;
 using TouristGuide.Models.Forecast;
-
+using TouristGuide.Views;
+using Xamarin.Forms;
 
 namespace TouristGuide.ViewModels
 {
@@ -15,10 +16,12 @@ namespace TouristGuide.ViewModels
     {
         public ObservableCollection<Daily> DailyForecasts { get; set; }
         public ObservableCollection<Geocode> Geocodes { get; set; }
+        public Command WeatherDetailsNavigationCommand { get; set; }
         public WeatherViewModel()
         {
             DailyForecasts = new ObservableCollection<Daily>();
             Geocodes = new ObservableCollection<Geocode>();
+            WeatherDetailsNavigationCommand = new Command<Daily>(WeatherDetailsNavigation);
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
@@ -51,6 +54,11 @@ namespace TouristGuide.ViewModels
             {
                 dailyForecast.date= dtDateTime.AddSeconds(dailyForecast.dt).ToLocalTime();
             }
+        }
+        private async void WeatherDetailsNavigation(Daily day)
+        {
+            await App.Current.MainPage.Navigation.PushAsync(new WeatherDetailsPage(day));
+            
         }
     }
 }
