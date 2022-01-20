@@ -6,9 +6,12 @@
              NavigationPage.HasBackButton="False"
              NavigationPage.HasNavigationBar="False">
     <ContentPage.Content>
-        <StackLayout>
-            <SearchBar BackgroundColor="{StaticResource secondaryColor}"/>
-            <maps:Map HorizontalOptions="FillAndExpand"
+        <StackLayout BackgroundColor="{StaticResource salmon}">
+            <SearchBar BackgroundColor="{StaticResource salmon}"
+                       Placeholder="Search for Points of Interest"/>
+            <maps:Map
+                Margin="0"
+                HorizontalOptions="FillAndExpand"
               VerticalOptions="FillAndExpand"
               x:Name="locationsMap"
               IsShowingUser="True">
