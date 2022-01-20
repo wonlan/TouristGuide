@@ -48,19 +48,19 @@
                         Grid.Row="0"
                         HorizontalOptions="CenterAndExpand"
                         VerticalOptions="CenterAndExpand"
-                           FontSize="17"/>
+                           FontSize="14"/>
                     <Image Source="drop.png"
                            Grid.Row="0"
                            VerticalOptions="CenterAndExpand"
                            HorizontalOptions="StartAndExpand"
                            Margin="15"
                            HeightRequest="36"/>
-                    <Label Text="{Binding Daily.precipitation, StringFormat='{0:N0} mm'}"
+                    <Label Text="{Binding Daily.precipitation, StringFormat='{0:N} mm'}"
                         Grid.Row="0"
                         HorizontalOptions="EndAndExpand"
                         VerticalOptions="CenterAndExpand"
                             Margin="15"
-                           FontSize="17"/>
+                           FontSize="14"/>
                     <!-- Grid Row 1 -->
                     <Frame Grid.Row="1"
                            CornerRadius="20"
@@ -70,7 +70,7 @@
                         Grid.Row="1"
                         HorizontalOptions="CenterAndExpand"
                         VerticalOptions="CenterAndExpand"
-                           FontSize="17"/>
+                           FontSize="14"/>
                     <Image Source="pop.png"
                            Grid.Row="1"
                            VerticalOptions="CenterAndExpand"
@@ -82,7 +82,7 @@
                         HorizontalOptions="EndAndExpand"
                         VerticalOptions="CenterAndExpand"
                             Margin="15"
-                           FontSize="17"/>
+                           FontSize="14"/>
                     <!-- Grid Row 2 -->
                     <Frame Grid.Row="2"
                            CornerRadius="20"
@@ -92,7 +92,7 @@
                         Grid.Row="2"
                         HorizontalOptions="CenterAndExpand"
                         VerticalOptions="CenterAndExpand"
-                           FontSize="17"/>
+                           FontSize="14"/>
                     <Image Source="windy.png"
                            Grid.Row="2"
                            VerticalOptions="CenterAndExpand"
@@ -104,7 +104,7 @@
                         HorizontalOptions="EndAndExpand"
                         VerticalOptions="CenterAndExpand"
                             Margin="15"
-                           FontSize="17"/>
+                           FontSize="14"/>
                     <!-- Grid Row 3 -->
                     <Frame Grid.Row="3"
                            CornerRadius="20"
@@ -114,7 +114,7 @@
                         Grid.Row="3"
                         HorizontalOptions="CenterAndExpand"
                         VerticalOptions="CenterAndExpand"
-                           FontSize="17"/>
+                           FontSize="14"/>
                     <Image Source="cloudy.png"
                            Grid.Row="3"
                            VerticalOptions="CenterAndExpand"
@@ -126,7 +126,7 @@
                         HorizontalOptions="EndAndExpand"
                         VerticalOptions="CenterAndExpand"
                             Margin="15"
-                           FontSize="17"/>
+                           FontSize="14"/>
                     <!-- Grid Row 4 -->
                     <Frame Grid.Row="4"
                            CornerRadius="20"
@@ -136,7 +136,7 @@
                         Grid.Row="4"
                         HorizontalOptions="CenterAndExpand"
                         VerticalOptions="CenterAndExpand"
-                           FontSize="17"/>
+                           FontSize="14"/>
                     <Image Source="humidity.png"
                            Grid.Row="4"
                            VerticalOptions="CenterAndExpand"
@@ -148,7 +148,7 @@
                         HorizontalOptions="EndAndExpand"
                         VerticalOptions="CenterAndExpand"
                             Margin="15"
-                           FontSize="17"/>
+                           FontSize="14"/>
                     <!-- Grid Row 5 -->
                     <Frame Grid.Row="5"
                            CornerRadius="20"
@@ -158,19 +158,393 @@
                         Grid.Row="5"
                         HorizontalOptions="CenterAndExpand"
                         VerticalOptions="CenterAndExpand"
-                           FontSize="17"/>
-                    <Image Source="drop.png"
+                           FontSize="14"/>
+                    <Image Source="rainy.png"
                            Grid.Row="5"
                            VerticalOptions="CenterAndExpand"
                            HorizontalOptions="StartAndExpand"
                            Margin="15"
                            HeightRequest="36"/>
-                    <Label Text="{Binding Daily.humidity, StringFormat='{0} %'}"
+                    <Label Text="{Binding Daily.rain, StringFormat='{0:N} mm'}"
                         Grid.Row="5"
                         HorizontalOptions="EndAndExpand"
                         VerticalOptions="CenterAndExpand"
                             Margin="15"
-                           FontSize="17"/>
+                           FontSize="14"/>
+                    <!-- Grid Row 6 -->
+                    <Frame Grid.Row="6"
+                           CornerRadius="20"
+                           Margin="3"
+                           BackgroundColor="{StaticResource thirdColor}"/>
+                    <Label Text="Snow"
+                        Grid.Row="6"
+                        HorizontalOptions="CenterAndExpand"
+                        VerticalOptions="CenterAndExpand"
+                           FontSize="14"/>
+                    <Image Source="snowy.png"
+                           Grid.Row="6"
+                           VerticalOptions="CenterAndExpand"
+                           HorizontalOptions="StartAndExpand"
+                           Margin="15"
+                           HeightRequest="36"/>
+                    <Label Text="{Binding Daily.snow, StringFormat='{0:N} mm'}"
+                        Grid.Row="6"
+                        HorizontalOptions="EndAndExpand"
+                        VerticalOptions="CenterAndExpand"
+                            Margin="15"
+                           FontSize="14"/>
+                    <!-- Grid Row 7 -->
+                    <Frame Grid.Row="7"
+                           CornerRadius="20"
+                           Margin="3"
+                           BackgroundColor="{StaticResource thirdColor}"/>
+                    <Label Text="Wind Degree"
+                        Grid.Row="7"
+                        HorizontalOptions="CenterAndExpand"
+                        VerticalOptions="CenterAndExpand"
+                           FontSize="14"/>
+                    <Image Source="compass.png"
+                           Grid.Row="7"
+                           VerticalOptions="CenterAndExpand"
+                           HorizontalOptions="StartAndExpand"
+                           Margin="15"
+                           HeightRequest="36"/>
+                    <Label Text="{Binding Daily.wind_deg, StringFormat='{0}°'}"
+                        Grid.Row="7"
+                        HorizontalOptions="EndAndExpand"
+                        VerticalOptions="CenterAndExpand"
+                            Margin="15"
+                           FontSize="14"/>
+                    <!-- Grid Row 8 -->
+                    <Frame Grid.Row="8"
+                           CornerRadius="20"
+                           Margin="3"
+                           BackgroundColor="{StaticResource thirdColor}"/>
+                    <Label Text="Maximum Temperature"
+                        Grid.Row="8"
+                        HorizontalOptions="CenterAndExpand"
+                        VerticalOptions="CenterAndExpand"
+                           FontSize="14"/>
+                    <Image Source="hot.png"
+                           Grid.Row="8"
+                           VerticalOptions="CenterAndExpand"
+                           HorizontalOptions="StartAndExpand"
+                           Margin="15"
+                           HeightRequest="36"/>
+                    <Label Text="{Binding Daily.temp.max, StringFormat='{0} °C'}"
+                        Grid.Row="8"
+                        HorizontalOptions="EndAndExpand"
+                        VerticalOptions="CenterAndExpand"
+                            Margin="15"
+                           FontSize="14"/>
+                    <!-- Grid Row 9 -->
+                    <Frame Grid.Row="9"
+                           CornerRadius="20"
+                           Margin="3"
+                           BackgroundColor="{StaticResource thirdColor}"/>
+                    <Label Text="Minimum Temperature"
+                        Grid.Row="9"
+                        HorizontalOptions="CenterAndExpand"
+                        VerticalOptions="CenterAndExpand"
+                           FontSize="14"/>
+                    <Image Source="cold.png"
+                           Grid.Row="9"
+                           VerticalOptions="CenterAndExpand"
+                           HorizontalOptions="StartAndExpand"
+                           Margin="15"
+                           HeightRequest="36"/>
+                    <Label Text="{Binding Daily.temp.min, StringFormat='{0} °C'}"
+                        Grid.Row="9"
+                        HorizontalOptions="EndAndExpand"
+                        VerticalOptions="CenterAndExpand"
+                            Margin="15"
+                           FontSize="14"/>
+                    <!-- Grid Row 10 -->
+                    <Frame Grid.Row="10"
+                           CornerRadius="20"
+                           Margin="3"
+                           BackgroundColor="{StaticResource thirdColor}"/>
+                    <Label Text="Morning Temperature"
+                        Grid.Row="10"
+                        HorizontalOptions="CenterAndExpand"
+                        VerticalOptions="CenterAndExpand"
+                           FontSize="14"/>
+                    <Image Source="cold.png"
+                           Grid.Row="10"
+                           VerticalOptions="CenterAndExpand"
+                           HorizontalOptions="StartAndExpand"
+                           Margin="15"
+                           HeightRequest="36"/>
+                    <Label Text="{Binding Daily.temp.morn, StringFormat='{0} °C'}"
+                        Grid.Row="10"
+                        HorizontalOptions="EndAndExpand"
+                        VerticalOptions="CenterAndExpand"
+                            Margin="15"
+                           FontSize="14"/>
+                    <!-- Grid Row 11 -->
+                    <Frame Grid.Row="11"
+                           CornerRadius="20"
+                           Margin="3"
+                           BackgroundColor="{StaticResource thirdColor}"/>
+                    <Label Text="Day Temperature"
+                        Grid.Row="11"
+                        HorizontalOptions="CenterAndExpand"
+                        VerticalOptions="CenterAndExpand"
+                           FontSize="14"/>
+                    <Image Source="warm.png"
+                           Grid.Row="11"
+                           VerticalOptions="CenterAndExpand"
+                           HorizontalOptions="StartAndExpand"
+                           Margin="15"
+                           HeightRequest="36"/>
+                    <Label Text="{Binding Daily.temp.day, StringFormat='{0} °C'}"
+                        Grid.Row="11"
+                        HorizontalOptions="EndAndExpand"
+                        VerticalOptions="CenterAndExpand"
+                            Margin="15"
+                           FontSize="14"/>
+                    <!-- Grid Row 12 -->
+                    <Frame Grid.Row="12"
+                           CornerRadius="20"
+                           Margin="3"
+                           BackgroundColor="{StaticResource thirdColor}"/>
+                    <Label Text="Evening Temperature"
+                        Grid.Row="12"
+                        HorizontalOptions="CenterAndExpand"
+                        VerticalOptions="CenterAndExpand"
+                           FontSize="14"/>
+                    <Image Source="warm.png"
+                           Grid.Row="12"
+                           VerticalOptions="CenterAndExpand"
+                           HorizontalOptions="StartAndExpand"
+                           Margin="15"
+                           HeightRequest="36"/>
+                    <Label Text="{Binding Daily.temp.eve, StringFormat='{0} °C'}"
+                        Grid.Row="12"
+                        HorizontalOptions="EndAndExpand"
+                        VerticalOptions="CenterAndExpand"
+                            Margin="15"
+                           FontSize="14"/>
+                    <!-- Grid Row 13 -->
+                    <Frame Grid.Row="13"
+                           CornerRadius="20"
+                           Margin="3"
+                           BackgroundColor="{StaticResource thirdColor}"/>
+                    <Label Text="Night Temperature"
+                        Grid.Row="13"
+                        HorizontalOptions="CenterAndExpand"
+                        VerticalOptions="CenterAndExpand"
+                           FontSize="14"/>
+                    <Image Source="cold.png"
+                           Grid.Row="13"
+                           VerticalOptions="CenterAndExpand"
+                           HorizontalOptions="StartAndExpand"
+                           Margin="15"
+                           HeightRequest="36"/>
+                    <Label Text="{Binding Daily.temp.night, StringFormat='{0} °C'}"
+                        Grid.Row="13"
+                        HorizontalOptions="EndAndExpand"
+                        VerticalOptions="CenterAndExpand"
+                            Margin="15"
+                           FontSize="14"/>
+                    <!-- Grid Row 14 -->
+                    <Frame Grid.Row="14"
+                           CornerRadius="20"
+                           Margin="3"
+                           BackgroundColor="{StaticResource thirdColor}"/>
+                    <Label Text="Perceived Morning Temperature"
+                        Grid.Row="14"
+                        HorizontalOptions="CenterAndExpand"
+                        VerticalOptions="CenterAndExpand"
+                           FontSize="14"/>
+                    <Image Source="cold.png"
+                           Grid.Row="14"
+                           VerticalOptions="CenterAndExpand"
+                           HorizontalOptions="StartAndExpand"
+                           Margin="15"
+                           HeightRequest="36"/>
+                    <Label Text="{Binding Daily.feels_like.morn, StringFormat='{0} °C'}"
+                        Grid.Row="14"
+                        HorizontalOptions="EndAndExpand"
+                        VerticalOptions="CenterAndExpand"
+                            Margin="15"
+                           FontSize="14"/>
+                    <!-- Grid Row 15 -->
+                    <Frame Grid.Row="15"
+                           CornerRadius="20"
+                           Margin="3"
+                           BackgroundColor="{StaticResource thirdColor}"/>
+                    <Label Text="Perceived Day Temperature"
+                        Grid.Row="15"
+                        HorizontalOptions="CenterAndExpand"
+                        VerticalOptions="CenterAndExpand"
+                           FontSize="14"/>
+                    <Image Source="warm.png"
+                           Grid.Row="15"
+                           VerticalOptions="CenterAndExpand"
+                           HorizontalOptions="StartAndExpand"
+                           Margin="15"
+                           HeightRequest="36"/>
+                    <Label Text="{Binding Daily.feels_like.day, StringFormat='{0} °C'}"
+                        Grid.Row="15"
+                        HorizontalOptions="EndAndExpand"
+                        VerticalOptions="CenterAndExpand"
+                            Margin="15"
+                           FontSize="14"/>
+                    <!-- Grid Row 16 -->
+                    <Frame Grid.Row="16"
+                           CornerRadius="20"
+                           Margin="3"
+                           BackgroundColor="{StaticResource thirdColor}"/>
+                    <Label Text="Perceived Evening Temperature"
+                        Grid.Row="16"
+                        HorizontalOptions="CenterAndExpand"
+                        VerticalOptions="CenterAndExpand"
+                           FontSize="14"/>
+                    <Image Source="warm.png"
+                           Grid.Row="16"
+                           VerticalOptions="CenterAndExpand"
+                           HorizontalOptions="StartAndExpand"
+                           Margin="15"
+                           HeightRequest="36"/>
+                    <Label Text="{Binding Daily.feels_like.eve, StringFormat='{0} °C'}"
+                        Grid.Row="16"
+                        HorizontalOptions="EndAndExpand"
+                        VerticalOptions="CenterAndExpand"
+                            Margin="15"
+                           FontSize="14"/>
+                    <!-- Grid Row 17 -->
+                    <Frame Grid.Row="17"
+                           CornerRadius="20"
+                           Margin="3"
+                           BackgroundColor="{StaticResource thirdColor}"/>
+                    <Label Text="Perceived Night Temperature"
+                        Grid.Row="17"
+                        HorizontalOptions="CenterAndExpand"
+                        VerticalOptions="CenterAndExpand"
+                           FontSize="14"/>
+                    <Image Source="cold.png"
+                           Grid.Row="17"
+                           VerticalOptions="CenterAndExpand"
+                           HorizontalOptions="StartAndExpand"
+                           Margin="15"
+                           HeightRequest="36"/>
+                    <Label Text="{Binding Daily.feels_like.night, StringFormat='{0} °C'}"
+                        Grid.Row="17"
+                        HorizontalOptions="EndAndExpand"
+                        VerticalOptions="CenterAndExpand"
+                            Margin="15"
+                           FontSize="14"/>
+                    <!-- Grid Row 18 -->
+                    <Frame Grid.Row="18"
+                           CornerRadius="20"
+                           Margin="3"
+                           BackgroundColor="{StaticResource thirdColor}"/>
+                    <Label Text="Atmospheric Pressure"
+                        Grid.Row="18"
+                        HorizontalOptions="CenterAndExpand"
+                        VerticalOptions="CenterAndExpand"
+                           FontSize="14"/>
+                    <Image Source="meter.png"
+                           Grid.Row="18"
+                           VerticalOptions="CenterAndExpand"
+                           HorizontalOptions="StartAndExpand"
+                           Margin="15"
+                           HeightRequest="36"/>
+                    <Label Text="{Binding Daily.pressure, StringFormat='{0} hPa'}"
+                        Grid.Row="18"
+                        HorizontalOptions="EndAndExpand"
+                        VerticalOptions="CenterAndExpand"
+                            Margin="15"
+                           FontSize="14"/>
+                    <!-- Grid Row 19 -->
+                    <Frame Grid.Row="19"
+                           CornerRadius="20"
+                           Margin="3"
+                           BackgroundColor="{StaticResource thirdColor}"/>
+                    <Label Text="Sunrise"
+                        Grid.Row="19"
+                        HorizontalOptions="CenterAndExpand"
+                        VerticalOptions="CenterAndExpand"
+                           FontSize="14"/>
+                    <Image Source="sunrise.png"
+                           Grid.Row="19"
+                           VerticalOptions="CenterAndExpand"
+                           HorizontalOptions="StartAndExpand"
+                           Margin="15"
+                           HeightRequest="36"/>
+                    <Label Text="{Binding Daily.sunrise_dt, StringFormat='{0:H:m}'}"
+                        Grid.Row="19"
+                        HorizontalOptions="EndAndExpand"
+                        VerticalOptions="CenterAndExpand"
+                            Margin="15"
+                           FontSize="14"/>
+                    <!-- Grid Row 20 -->
+                    <Frame Grid.Row="20"
+                           CornerRadius="20"
+                           Margin="3"
+                           BackgroundColor="{StaticResource thirdColor}"/>
+                    <Label Text="Sunset"
+                        Grid.Row="20"
+                        HorizontalOptions="CenterAndExpand"
+                        VerticalOptions="CenterAndExpand"
+                           FontSize="14"/>
+                    <Image Source="sunset.png"
+                           Grid.Row="20"
+                           VerticalOptions="CenterAndExpand"
+                           HorizontalOptions="StartAndExpand"
+                           Margin="15"
+                           HeightRequest="36"/>
+                    <Label Text="{Binding Daily.sunset_dt, StringFormat='{0:H:m}'}"
+                        Grid.Row="20"
+                        HorizontalOptions="EndAndExpand"
+                        VerticalOptions="CenterAndExpand"
+                            Margin="15"
+                           FontSize="14"/>
+                    <!-- Grid Row 21 -->
+                    <Frame Grid.Row="21"
+                           CornerRadius="20"
+                           Margin="3"
+                           BackgroundColor="{StaticResource thirdColor}"/>
+                    <Label Text="Moonrise"
+                        Grid.Row="21"
+                        HorizontalOptions="CenterAndExpand"
+                        VerticalOptions="CenterAndExpand"
+                           FontSize="14"/>
+                    <Image Source="night.png"
+                           Grid.Row="21"
+                           VerticalOptions="CenterAndExpand"
+                           HorizontalOptions="StartAndExpand"
+                           Margin="15"
+                           HeightRequest="36"/>
+                    <Label Text="{Binding Daily.moonrise_dt, StringFormat='{0:H:m}'}"
+                        Grid.Row="21"
+                        HorizontalOptions="EndAndExpand"
+                        VerticalOptions="CenterAndExpand"
+                            Margin="15"
+                           FontSize="14"/>
+                    <!-- Grid Row 22 -->
+                    <Frame Grid.Row="22"
+                           CornerRadius="20"
+                           Margin="3"
+                           BackgroundColor="{StaticResource thirdColor}"/>
+                    <Label Text="Moonset"
+                        Grid.Row="22"
+                        HorizontalOptions="CenterAndExpand"
+                        VerticalOptions="CenterAndExpand"
+                           FontSize="14"/>
+                    <Image Source="moon.png"
+                           Grid.Row="22"
+                           VerticalOptions="CenterAndExpand"
+                           HorizontalOptions="StartAndExpand"
+                           Margin="15"
+                           HeightRequest="36"/>
+                    <Label Text="{Binding Daily.moonset_dt, StringFormat='{0:H:mm}'}"
+                        Grid.Row="22"
+                        HorizontalOptions="EndAndExpand"
+                        VerticalOptions="CenterAndExpand"
+                            Margin="15"
+                           FontSize="14"/>
                 </Grid>
             </StackLayout>
         </ScrollView>

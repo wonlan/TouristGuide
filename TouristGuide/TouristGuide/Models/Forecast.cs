@@ -121,6 +121,11 @@ namespace TouristGuide.Models.Forecast
         public DateTime date { get; set; }
         public double precipitation => snow + rain;
         public double probability => pop * 100;
+        public DateTime sunset_dt { get; set; }
+        public DateTime sunrise_dt { get; set; }
+        public DateTime moonrise_dt { get; set; }
+        public DateTime moonset_dt { get; set; }
+
     }
 
     public class Forecast

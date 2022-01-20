@@ -54,6 +54,10 @@ namespace TouristGuide.ViewModels
             foreach (var dailyForecast in DailyForecasts)
             {
                 dailyForecast.date = dtDateTime.AddSeconds(dailyForecast.dt).ToLocalTime();
+                dailyForecast.moonrise_dt = dtDateTime.AddSeconds(dailyForecast.moonrise).ToLocalTime();
+                dailyForecast.moonset_dt = dtDateTime.AddSeconds(dailyForecast.moonset).ToLocalTime();
+                dailyForecast.sunrise_dt = dtDateTime.AddSeconds(dailyForecast.sunrise).ToLocalTime();
+                dailyForecast.sunset_dt = dtDateTime.AddSeconds(dailyForecast.sunset).ToLocalTime();
             }
         }
         private void ChangeWindSpeed()
