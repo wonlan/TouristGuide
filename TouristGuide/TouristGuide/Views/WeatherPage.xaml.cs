@@ -25,7 +25,14 @@ namespace TouristGuide.Views
             base.OnAppearing();
             NavigationPage.SetHasNavigationBar(this, false);
             vm = Resources["vm"] as WeatherViewModel;
-            vm.GetDailyForecast();
+            if (!vm.isSearched)
+            {
+                vm.GetDailyForecast();
+            }
+            else
+            {
+                vm.GetDailyForecastForCity(vm.Geocodes[0].name);
+            }
         }
         protected override bool OnBackButtonPressed()
         {

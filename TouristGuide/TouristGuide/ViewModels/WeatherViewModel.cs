@@ -14,14 +14,17 @@ namespace TouristGuide.ViewModels
 {
     class WeatherViewModel : INotifyPropertyChanged
     {
+        public bool isSearched = false;
         public ObservableCollection<Daily> DailyForecasts { get; set; }
         public ObservableCollection<Geocode> Geocodes { get; set; }
         public Command WeatherDetailsNavigationCommand { get; set; }
+        public Command GetDailyForecastForCityCommand { get; set; }
         public WeatherViewModel()
         {
             DailyForecasts = new ObservableCollection<Daily>();
             Geocodes = new ObservableCollection<Geocode>();
             WeatherDetailsNavigationCommand = new Command<Daily>(WeatherDetailsNavigation);
+            GetDailyForecastForCityCommand = new Command<string>(GetDailyForecastForCity);
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
@@ -47,6 +50,31 @@ namespace TouristGuide.ViewModels
             ChangeTime();
             ChangeWindSpeed();
             OnPropertyChanged("DailyForecasts");
+            isSearched = false;
+        }
+        public async void GetDailyForecastForCity(string city)
+        {
+            try
+            {
+                var geocode = await GeocodeRoot.GetReverseGeocodingLocation(city);
+                var forecast = await ForecastRoot.GetWeather(geocode.lat, geocode.lon);
+                Geocodes.Clear();
+                Geocodes.Add(geocode);
+                DailyForecasts.Clear();
+                OnPropertyChanged("Geocodes");
+                foreach (var dailyForecast in forecast.daily)
+                {
+                    DailyForecasts.Add(dailyForecast);
+                }
+                ChangeTime();
+                ChangeWindSpeed();
+                OnPropertyChanged("DailyForecasts");
+                isSearched = true;
+            }
+            catch
+            {
+                await App.Current.MainPage.DisplayAlert("City not Found","Entered city name is not valid. Try again","OK");
+            }
         }
         private void ChangeTime()
         {

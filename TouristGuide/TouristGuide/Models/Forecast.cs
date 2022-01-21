@@ -27,6 +27,7 @@ namespace TouristGuide.Models.Forecast
             }
             return forecast;
         }
+
     }
     public class Weather
     {

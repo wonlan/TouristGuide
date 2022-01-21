@@ -14,10 +14,27 @@ namespace TouristGuide.Models
             string url = "https://api.openweathermap.org/geo/1.0/reverse?lat=" + latitude.ToString() + "&lon=" + longitude.ToString() + "&appid=d122c0ab9ab8bed07ad9650660342492";
             return url;
         }
+        public static string GenerateURL(string city)
+        {
+            string url = "https://api.openweathermap.org/geo/1.0/direct?q=" + city + "&appid=d122c0ab9ab8bed07ad9650660342492";
+            return url;
+        }
         public static async Task<Geocode> GetReverseGeocodingLocation(double latitude, double longitude)
         {
             Geocode geocode = new Geocode();
             string url = GenerateURL(latitude, longitude);
+            using (HttpClient client = new HttpClient())
+            {
+                var response = await client.GetAsync(url);
+                var json = await response.Content.ReadAsStringAsync();
+                geocode = JsonConvert.DeserializeObject<Geocode>(json.Substring(1, json.Length - 2));
+            }
+            return geocode;
+        }
+        public static async Task<Geocode> GetReverseGeocodingLocation(string city)
+        {
+            Geocode geocode = new Geocode();
+            string url = GenerateURL(city);
             using (HttpClient client = new HttpClient())
             {
                 var response = await client.GetAsync(url);

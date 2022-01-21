@@ -20,8 +20,12 @@
                 </Grid.RowDefinitions>
                 <SearchBar BackgroundColor="{StaticResource salmon}"
                            Grid.Row="0"
+                           x:Name="searchBar"
                            Margin="0"
                            Placeholder="Search for City"
+                           BindingContext="{StaticResource vm}"
+                           SearchCommand="{Binding GetDailyForecastForCityCommand}"
+                           SearchCommandParameter="{Binding Text, Source={x:Reference searchBar}}"
                            />
                 <Grid Grid.Row="1"
                 BackgroundColor="{StaticResource secondaryColor}"
@@ -117,7 +121,7 @@
                                Grid.Row="0"
                                Grid.Column="2"
                                Margin="15,15,0,0"/>
-                                <Label Text="{Binding DailyForecasts[0].temp.day, StringFormat='{0:N0}°'}"
+                                <Label Text="{Binding DailyForecasts[0].temp.day, StringFormat='{0:N0}° C'}"
                        HorizontalOptions="CenterAndExpand"
                                VerticalOptions="CenterAndExpand"
                                FontSize="15"
