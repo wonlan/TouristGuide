@@ -8,7 +8,9 @@
     <ContentPage.Content>
         <StackLayout BackgroundColor="{StaticResource salmon}">
             <SearchBar BackgroundColor="{StaticResource salmon}"
-                       Placeholder="Search for Points of Interest"/>
+                       Placeholder="Search for Points of Interest"
+                       x:Name="searchBar"
+                       SearchButtonPressed="SearchBar_SearchButtonPressed"/>
             <maps:Map
                 Margin="0"
                 HorizontalOptions="FillAndExpand"

@@ -59,7 +59,7 @@ namespace TouristGuide.Models.Forecast
     public class Minutely
     {
         public int dt { get; set; }
-        public int precipitation { get; set; }
+        public double precipitation { get; set; }
     }
     public class Hourly
     {

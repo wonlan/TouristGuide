@@ -83,6 +83,23 @@ namespace TouristGuide.Models
             }
             return venues;
         }
+
+        public static async Task<List<Result>> GetPlace(double latitude, double longitude, string name)
+        {
+            List<Result> venues = new List<Result>();
+            var url = VenueRoot.GenerateURL_Place(latitude, longitude,name);
+            using (HttpClient client = new HttpClient())
+            {
+                client.DefaultRequestHeaders.TryAddWithoutValidation("Authorization", "fsq3LhmjhqnLL8417FVHrd+wF8e7yQQdfLscps84MwpiNNs=");
+                var response = await client.GetAsync(url);
+                var json = await response.Content.ReadAsStringAsync();
+
+                var venueRoot = JsonConvert.DeserializeObject<VenueRoot>(json);
+
+                venues = venueRoot.results as List<Result>;
+            }
+            return venues;
+        }
     }
 
 
@@ -93,6 +110,12 @@ namespace TouristGuide.Models
         {
             string url = "https://api.foursquare.com/v3/places/nearby?ll=" + latitude.ToString() + "," +
                          longitude.ToString();
+            return url;
+        }
+        public static string GenerateURL_Place(double latitude, double longitude, string name)
+        {
+            string url = "https://api.foursquare.com/v3/places/search?query="+name+"&ll=" + latitude.ToString() + "," +
+                         longitude.ToString() + "&radius=100000";
             return url;
         }
     }

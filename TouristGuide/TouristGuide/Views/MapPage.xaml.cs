@@ -94,5 +94,29 @@ namespace TouristGuide.Views
             status = await Permissions.RequestAsync<Permissions.LocationWhenInUse>();
             return status;
         }
+
+        private async void SearchBar_SearchButtonPressed(object sender, EventArgs e)
+        {
+            try
+            {
+                var locator = CrossGeolocator.Current;
+                var position = await locator.GetPositionAsync();
+                var venues = await Result.GetPlace(position.Latitude, position.Longitude, searchBar.Text);
+                CenterMap(venues[0].geocodes.main.latitude, venues[0].geocodes.main.longitude);
+                var pinCoordinates =
+                        new Xamarin.Forms.Maps.Position(venues[0].geocodes.main.latitude, venues[0].geocodes.main.longitude);
+                var pin = new Pin()
+                {
+                    Position = pinCoordinates,
+                    Label = venues[0].name,
+                    Type = PinType.Place
+                };
+                locationsMap.Pins.Add(pin);
+            }
+            catch
+            {
+                DisplayAlert("Place not found","","OK");
+            }
+        }
     }
 }
