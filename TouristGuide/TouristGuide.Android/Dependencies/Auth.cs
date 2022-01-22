@@ -81,5 +81,49 @@ namespace TouristGuide.Droid.Dependencies
         {
             return Firebase.Auth.FirebaseAuth.Instance.CurrentUser.Uid;
         }
+
+        public async Task<bool> DeleteUser()
+        {
+            try
+            {
+                await Firebase.Auth.FirebaseAuth.Instance.CurrentUser.DeleteAsync();
+                return true;
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message);
+            }
+        }
+
+        public async Task<bool> ChangePassword()
+        {
+            try
+            {
+                var test = Firebase.Auth.FirebaseAuth.Instance.CurrentUser.Email;
+                await Firebase.Auth.FirebaseAuth.Instance.SendPasswordResetEmailAsync(Firebase.Auth.FirebaseAuth.Instance.CurrentUser.Email);
+                return true;
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message);
+            }
+        }
+
+        public async Task <bool> LogoutUser()
+        {
+            try
+            {
+                Firebase.Auth.FirebaseAuth.Instance.SignOut();
+                return true;
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message);
+            }
+        }
+        public string GetCurrentUserEmail()
+        {
+            return Firebase.Auth.FirebaseAuth.Instance.CurrentUser.Email;
+        }
     }
 }

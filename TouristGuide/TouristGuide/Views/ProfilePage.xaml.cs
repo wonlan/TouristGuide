@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using TouristGuide.Other;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -21,10 +21,11 @@ namespace TouristGuide.Views
             base.OnAppearing();
             NavigationPage.SetHasNavigationBar(this, false);
         }
-        protected override bool OnBackButtonPressed()
+        protected override void OnDisappearing()
         {
-
-            return true;
+            base.OnDisappearing();
+            var existingPages = Navigation.NavigationStack.ToList();
+            Navigation.RemovePage(existingPages[0]);
         }
     }
 }

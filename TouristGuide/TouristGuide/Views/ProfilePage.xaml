@@ -3,6 +3,35 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="TouristGuide.Views.ProfilePage"
              NavigationPage.HasBackButton="False"
-             NavigationPage.HasNavigationBar="False">
-    
+             NavigationPage.HasNavigationBar="False"
+             xmlns:vm="clr-namespace:TouristGuide.ViewModels">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <vm:ProfileViewModel x:Key="vm"/>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <StackLayout BindingContext="{StaticResource vm}">
+            <Label Text="Account Email"
+                   HorizontalOptions="CenterAndExpand"
+                   FontSize="18"
+                   Margin="0,20,0,10"/>
+            <Label Text="{Binding Email}"
+                   HorizontalOptions="CenterAndExpand"
+                   FontSize="15"/>
+            <Label Text="Account Options"
+                   HorizontalOptions="CenterAndExpand"
+                   FontSize="18"
+                   Margin="0,20,0,10"/>
+            <Button Style="{StaticResource normalButton}"
+                    Text="Log Out"
+                    Command="{Binding LogOutCommand}"/>
+            <Button Style="{StaticResource normalButton}"
+                    Text="Delete Account"
+                    Command="{Binding DeleteAccountCommand}"/>
+            <Button Style="{StaticResource normalButton}"
+                    Text="Change Password"
+                    Command="{Binding ChangePasswordCommand}"/>
+        </StackLayout>
+    </ContentPage.Content>
 </ContentPage>

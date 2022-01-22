@@ -30,10 +30,10 @@ namespace TouristGuide.Views
             DisplayNearbyPlaces(venues);
             NavigationPage.SetHasNavigationBar(this, false);
         }
-        protected override bool OnBackButtonPressed()
-        {
-            return true;
-        }
+        //protected override bool OnBackButtonPressed()
+        //{
+        //    return true;
+        //}
         private void DisplayNearbyPlaces(List<Result> venues)
         {
             foreach (var venue in venues)

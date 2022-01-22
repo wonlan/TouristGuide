@@ -24,6 +24,10 @@ namespace TouristGuide.Views
         {
             base.OnAppearing();
             NavigationPage.SetHasNavigationBar(this, false);
+
+            var existingPages = Navigation.NavigationStack.ToList();
+            Navigation.RemovePage(existingPages[0]);
+
             vm = Resources["vm"] as WeatherViewModel;
             if (!vm.isSearched)
             {
@@ -34,10 +38,10 @@ namespace TouristGuide.Views
                 vm.GetDailyForecastForCity(vm.Geocodes[0].name);
             }
         }
-        protected override bool OnBackButtonPressed()
-        {
+        //protected override bool OnBackButtonPressed()
+        //{
 
-            return true;
-        }
+        //    return true;
+        //}
     }
 }

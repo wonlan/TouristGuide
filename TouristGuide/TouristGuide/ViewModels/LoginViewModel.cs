@@ -55,7 +55,6 @@ namespace TouristGuide.ViewModels
             //authenticate
             if (await Auth.LoginUser(Email, Password))
                 await App.Current.MainPage.Navigation.PushAsync(new HomePage());
-
         }
         private async void RegistrationNavigation()
         {
