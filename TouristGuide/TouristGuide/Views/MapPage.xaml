@@ -17,7 +17,7 @@
               VerticalOptions="FillAndExpand"
               x:Name="locationsMap"
               IsShowingUser="True">
-        </maps:Map>
+            </maps:Map>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

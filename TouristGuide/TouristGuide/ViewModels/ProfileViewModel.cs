@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using TouristGuide.Other;
 using Xamarin.Forms;
@@ -28,6 +29,8 @@ namespace TouristGuide.ViewModels
         {
             await Auth.LogoutUser();
             await App.Current.MainPage.Navigation.PushAsync(new LoginPage());
+            var existingPages = App.Current.MainPage.Navigation.NavigationStack.ToList();
+            App.Current.MainPage.Navigation.RemovePage(existingPages[0]);
         }
         private async void DeleteAccount()
         {

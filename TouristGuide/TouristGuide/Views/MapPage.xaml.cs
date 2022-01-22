@@ -44,6 +44,7 @@ namespace TouristGuide.Views
                 {
                     Position = pinCoordinates,
                     Label = venue.name,
+                    Address = venue.location.address,
                     Type = PinType.Place
                 };
                 locationsMap.Pins.Add(pin);

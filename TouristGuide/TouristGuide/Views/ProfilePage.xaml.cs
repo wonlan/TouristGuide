@@ -21,11 +21,5 @@ namespace TouristGuide.Views
             base.OnAppearing();
             NavigationPage.SetHasNavigationBar(this, false);
         }
-        protected override void OnDisappearing()
-        {
-            base.OnDisappearing();
-            var existingPages = Navigation.NavigationStack.ToList();
-            Navigation.RemovePage(existingPages[0]);
-        }
     }
 }
