@@ -26,7 +26,11 @@ namespace TouristGuide.Views
             NavigationPage.SetHasNavigationBar(this, false);
 
             var existingPages = Navigation.NavigationStack.ToList();
-            Navigation.RemovePage(existingPages[0]);
+            var test = existingPages[0].ToString();
+            if (existingPages.Count > 1 && existingPages[0].ToString()=="TouristGuide.LoginPage")
+            {
+                Navigation.RemovePage(existingPages[0]);
+            }
 
             vm = Resources["vm"] as WeatherViewModel;
             if (!vm.isSearched)

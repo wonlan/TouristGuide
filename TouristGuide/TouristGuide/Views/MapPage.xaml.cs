@@ -9,6 +9,7 @@ using Xamarin.Forms;
 using Xamarin.Forms.Maps;
 using Xamarin.Forms.Xaml;
 using Plugin.Geolocator;
+using TouristGuide.Other;
 
 namespace TouristGuide.Views
 {
@@ -118,6 +119,19 @@ namespace TouristGuide.Views
             {
                 DisplayAlert("Place not found","","OK");
             }
+        }
+
+        private void locationsMap_MapClicked(object sender, MapClickedEventArgs e)
+        {
+            Post post = new Post
+            {
+                Name = "Test",
+                Latitude = e.Position.Latitude,
+                Longitude = e.Position.Longitude,
+                Description = "Test2",
+                Adress = "Adress"
+            };
+            Firestore.Insert(post);
         }
     }
 }
