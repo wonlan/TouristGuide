@@ -29,6 +29,7 @@ namespace TouristGuide.Views
             var position = await locator.GetPositionAsync();
             var venues = await Result.GetNearbyVenues(position.Latitude, position.Longitude);
             DisplayNearbyPlaces(venues);
+            await DisplayPosts();
             NavigationPage.SetHasNavigationBar(this, false);
         }
         //protected override bool OnBackButtonPressed()
@@ -46,7 +47,7 @@ namespace TouristGuide.Views
                     Position = pinCoordinates,
                     Label = venue.name,
                     Address = venue.location.address,
-                    Type = PinType.Place
+                    Type = PinType.SearchResult
                 };
                 locationsMap.Pins.Add(pin);
             }
@@ -111,7 +112,7 @@ namespace TouristGuide.Views
                 {
                     Position = pinCoordinates,
                     Label = venues[0].name,
-                    Type = PinType.Place
+                    Type = PinType.SearchResult
                 };
                 locationsMap.Pins.Add(pin);
             }
@@ -123,15 +124,25 @@ namespace TouristGuide.Views
 
         private void locationsMap_MapClicked(object sender, MapClickedEventArgs e)
         {
-            Post post = new Post
+            Navigation.PushAsync(new NewPostPage(e));
+        }
+        private async Task<bool> DisplayPosts()
+        {
+            var posts = await Firestore.Read();
+            foreach (var post in posts)
             {
-                Name = "Test",
-                Latitude = e.Position.Latitude,
-                Longitude = e.Position.Longitude,
-                Description = "Test2",
-                Adress = "Adress"
-            };
-            Firestore.Insert(post);
+                var pinCoordinates =
+                    new Xamarin.Forms.Maps.Position(post.Latitude,post.Longitude);
+                var pin = new Pin()
+                {
+                    Position = pinCoordinates,
+                    Label = post.Name,
+                    Address = post.Adress,
+                    Type = PinType.SearchResult
+                };
+                locationsMap.Pins.Add(pin);
+            }
+            return true;
         }
     }
 }

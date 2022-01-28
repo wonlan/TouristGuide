@@ -18,7 +18,18 @@
                    Margin="0,20,0,10"/>
             <Label Text="{Binding Email}"
                    HorizontalOptions="CenterAndExpand"
-                   FontSize="15"/>
+                   FontSize="15"
+                   Margin="0,20,0,10"/>
+            <Frame HeightRequest="20"
+                   BackgroundColor="{StaticResource thirdColor}">
+                <Label Text="{Binding PostCount, StringFormat='Added Points : {0}'}"
+                   HorizontalOptions="CenterAndExpand"
+                   FontSize="14"/>
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer NumberOfTapsRequired="1"
+                                          Command="{Binding PostListNavigationCommand}"/>
+                </Frame.GestureRecognizers>
+            </Frame>
             <Label Text="Account Options"
                    HorizontalOptions="CenterAndExpand"
                    FontSize="18"

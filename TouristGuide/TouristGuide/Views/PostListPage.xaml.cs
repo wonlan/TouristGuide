@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using TouristGuide.Other;
 using TouristGuide.ViewModels;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -11,19 +10,18 @@ using Xamarin.Forms.Xaml;
 namespace TouristGuide.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class ProfilePage : ContentPage
+    public partial class PostListPage : ContentPage
     {
-        private ProfileViewModel vm;
-        public ProfilePage()
+        private PostListViewModel vm;
+        public PostListPage()
         {
             InitializeComponent();
         }
         protected override void OnAppearing()
         {
             base.OnAppearing();
-            NavigationPage.SetHasNavigationBar(this, false);
-            vm = Resources["vm"] as ProfileViewModel;
-            vm.GetPostCount();
+            vm = Resources["vm"] as PostListViewModel;
+            vm.GetPosts();
         }
     }
 }

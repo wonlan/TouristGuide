@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:TouristGuide.ViewModels"
+             x:Class="TouristGuide.Views.PostListPage">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <vm:PostListViewModel x:Key="vm"/>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    
+    <ContentPage.Content>
+        <ListView ItemsSource="{Binding Source={StaticResource vm}, Path=Posts}"
+                  SelectedItem="{Binding Source={StaticResource vm}, Path=SelectedPost}"
+                  HasUnevenRows="True"
+                  x:Name="postListView">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout>
+                            <Label Text="{Binding Name}"
+                                   FontSize="17"
+                                   TextColor="{StaticResource salmon}"/>
+                            <Label Text="{Binding Description}"/>
+                            <Label Text="{Binding Adress}"
+                                   FontSize="10"/>
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </ContentPage.Content>
+</ContentPage>
